@@ -21,7 +21,7 @@ jobs:
           port: 22
           username: root
           password: Hyaadodo@1010
-          server-dir: /opt/odoo-16/extra-addons/
+          server-dir: /
       
       - name: restart Odoo Service
         run: |
