@@ -1,0 +1,28 @@
+name: Odoo Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: restart Odoo Service
+        run: |
+          # ./odoo-bin -c odoo.conf &
+          docker restart 3ae97bf466d8
+                   
+      - name: 🚀 Access Project
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: 185.193.17.179
+          username: root
+          password: Hyaadodo@1010
+          server-dir: /opt/odoo-16/extra-addons/
+          
